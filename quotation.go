@@ -3,6 +3,7 @@ package upbit
 import (
 	"encoding/json"
 	"net/url"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -34,13 +35,13 @@ func (c *Client) GetMarkets(isDetails bool) ([]Market, error) {
 type CandleUnit int
 
 const (
-	CandleUnit1  CandleUnit = 1
-	CandleUnit3  CandleUnit = 3
-	CandleUnit5  CandleUnit = 5
-	CandleUnit10 CandleUnit = 10
-	CandleUnit15 CandleUnit = 15
-	CandleUnit30 CandleUnit = 30
-	CandleUnit60 CandleUnit = 60
+	CandleUnit1   CandleUnit = 1
+	CandleUnit3   CandleUnit = 3
+	CandleUnit5   CandleUnit = 5
+	CandleUnit10  CandleUnit = 10
+	CandleUnit15  CandleUnit = 15
+	CandleUnit30  CandleUnit = 30
+	CandleUnit60  CandleUnit = 60
 	CandleUnit240 CandleUnit = 240
 )
 
@@ -65,6 +66,7 @@ func (c *Client) GetMinuteCandles(market string, unit CandleUnit, to string, cou
 	if err := json.Unmarshal(body, &candles); err != nil {
 		return nil, err
 	}
+	slices.Reverse(candles)
 	return candles, nil
 }
 
@@ -91,6 +93,7 @@ func (c *Client) GetDayCandles(market string, to string, count int, convertingPr
 	if err := json.Unmarshal(body, &candles); err != nil {
 		return nil, err
 	}
+	slices.Reverse(candles)
 	return candles, nil
 }
 
@@ -114,6 +117,7 @@ func (c *Client) GetWeekCandles(market string, to string, count int) ([]Candle, 
 	if err := json.Unmarshal(body, &candles); err != nil {
 		return nil, err
 	}
+	slices.Reverse(candles)
 	return candles, nil
 }
 
@@ -137,6 +141,7 @@ func (c *Client) GetMonthCandles(market string, to string, count int) ([]Candle,
 	if err := json.Unmarshal(body, &candles); err != nil {
 		return nil, err
 	}
+	slices.Reverse(candles)
 	return candles, nil
 }
 
