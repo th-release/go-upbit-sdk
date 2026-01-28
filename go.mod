@@ -1,4 +1,4 @@
-module github.com/cth-release/go-upbit-sdk
+module github.com/th-release/go-upbit-sdk
 
 go 1.25.6
 

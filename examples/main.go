@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	upbit "github.com/cth-release/go-upbit-sdk"
+	upbit "github.com/th-release/go-upbit-sdk"
 )
 
 func main() {
