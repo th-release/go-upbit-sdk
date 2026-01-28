@@ -5,7 +5,7 @@ Go SDK for the [Upbit](https://upbit.com) cryptocurrency exchange API.
 ## Installation
 
 ```bash
-go get github.com/cth-release/go-upbit-sdk
+go get github.com/th-release/go-upbit-sdk
 ```
 
 ## Quick Start
@@ -15,7 +15,7 @@ package main
 
 import (
     "fmt"
-    upbit "github.com/cth-release/go-upbit-sdk"
+    upbit "github.com/th-release/go-upbit-sdk"
 )
 
 func main() {
